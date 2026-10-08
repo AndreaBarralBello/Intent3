@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Intent1">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SegundaActivity"
+            android:exported="true"> <!-- 1. OBLIGATORIO en Android 12+ para recibir intents externos -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <!-- 2. OBLIGATORIO: Sin la categoría DEFAULT, el sistema ignora el filtro implícito -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 3. OBLIGATORIO: Debe coincidir exactamente con "text/plain" -->
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TerceraActivity"
+            android:exported="true"> <!-- 1. OBLIGATORIO en Android 12+ para recibir intents externos -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <!-- 2. OBLIGATORIO: Sin la categoría DEFAULT, el sistema ignora el filtro implícito -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 3. OBLIGATORIO: Debe coincidir exactamente con "text/plain" -->
+                <data android:mimeType="image/jpeg" />
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>
